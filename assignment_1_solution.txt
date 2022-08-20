@@ -1,0 +1,45 @@
+Javascript Assignment 1
+
+1. Write a program to find whether a given year is a leap year or not.
+Solution:
+function isLeapYear(year){
+
+    return (year%400 == 0 || (year%4 == 0 && !(year%100==0)))
+}
+
+console.log(factorial(2022))
+
+2. Write a JavaScript program to convert temperatures to and from Celsius,
+Fahrenheit.
+[ Formula : c/5 = (f-32)/9 [ where c = temperature in Celsius and f = temperature in
+Fahrenheit ]
+Expected Output :
+60°C is 140 °F
+45°F is 7.222222222222222°C
+
+solution:
+function temperatureConverter(temp){
+    t = Number(temp.slice(0,temp.length-1))
+    if(temp.endsWith("C")){
+        f = (9*t+160)/5
+        document.write(f+" <sup>o</sup>F")
+    }
+    else{
+        c = (5*t-160)/9
+        document.write(c+" <sup>o</sup>C")
+
+    }
+}
+
+console.log(temperatureConverter("60C"))
+3. Write a program to find the factorial of a number.
+solution:
+function factorial(num){
+    var fact = 1
+    for (let x = num; x > 0; x--) {
+        fact *=x
+    }
+    return fact
+}
+
+console.log(factorial(5))

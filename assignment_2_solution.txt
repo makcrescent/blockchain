@@ -1,0 +1,114 @@
+1. Write a Javascript function to check whether a triangle is equilateral, isosceles or scalene
+
+solution:
+function typeOfTriangle(sidea, sideb, sidec){
+  
+    if(sidea === sideb) {
+        return (sideb === sidec)? "equilateral" : "isosceles"
+       
+    } else 
+        return (sideb === sidec)? "isosceles" : "scalene" 
+
+
+}
+console.log(typeOfTriangle(5,5,5))
+equilateral
+
+console.log(typeOfTriangle(5,5,3))
+isosceles
+
+console.log(typeOfTriangle(5,4,3))
+scalene
+
+2. Write a function using switch case to find the grade of a student based
+on marks obtained
+a. “S grade” if the marks are between 90 and 100.
+b. “A grade” if the marks are between 80 and 90.
+c. “B grade” if the marks are between 70 and 80.
+d. “C grade” if the marks are between 60 and 70.
+e. “D grade” if the marks are between 50 and 60.
+f. “E grade” if the marks are between 40 and 50.
+g. “Student has failed” if the marks are between 0 and 40.
+h. Else output “Invalid marks”.
+
+solution:
+
+function findGrade(marks){
+
+    if(marks > 100) return "Invalid Marks"
+
+    switch(true){
+    //    default: console.log("Invalid Marks");break
+        case marks > 90: 
+            console.log("S Grade")
+            break
+        case marks > 80:
+            console.log("A Grade")
+            break
+        case marks > 70: 
+            console.log("B Grade")
+            break
+        case marks > 60:
+            console.log("C Grade")
+            break
+        case marks > 50: 
+            console.log("D Grade")
+            break
+        case marks > 40:
+            console.log("E Grade")
+            break
+        default:
+            console.log("Invalid Marks")
+        
+    }
+}
+console.log(findGrade(67))
+
+
+3. Write a JavaScript program to find the sum of the multiples of 3 and 5 under 1000
+solution:
+
+function sumOfMultiples(limit, multiple1,multiple2) {
+    let sum = 0;
+    for (let index = 1; index < limit; index++) {
+        if (index % multiple1 === 0 || index % multiple2 === 0) {
+            sum += index;
+        }
+        
+    }
+    return sum;
+    
+}
+console.log(sumOfMultiples(1000,3,5)
+
+4. Write a program to find the factorial of all prime numbers between a
+given range . Range will be passed as 2 values in the function
+parameters. eg- if it is needed to find the values for numbers 1-100, then
+function declaration can look like - function prime(1,100).
+
+solution:
+function factorial(n){
+    return n==1? n: n*factorial(n-1)
+}
+
+function prime(l1,l2){
+    let primeNumbers =[]
+    //let isPrime = true
+    if (l1 <= 2) {
+        primeNumbers.push(2)
+    }
+    for(let index = 3; index < l2; index += 2){
+       let isPrime = true;
+       for(count = 0; count < primeNumbers.length; count++)
+       if(index % primeNumbers[count]==0){
+            isPrime = false
+       }
+        if(isPrime)
+            primeNumbers.push(index)
+    }
+    return primeNumbers
+}
+let primes = prime(1,100)
+primes.forEach(element => {
+    console.log(element+" : "+ BigInt(factorial(element)).toString())
+});

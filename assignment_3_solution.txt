@@ -1,0 +1,75 @@
+Javascript Assignment 3
+
+1. Using for loops, write a Javascript program to output the following
+pattern -
+1
+2 3
+4 5 6
+7 8 9 10
+
+solution:
+function pattern(n){
+    let num = 1;
+    for(row = 0; row < n; row++){
+        let line = ''
+        for(x = 0; x < row; x++)
+            line = line+' '+num++
+        console.log(line) 
+    }
+}
+pattern(5)
+
+2. Write a program to find whether a given number is armstrong number or not-
+The Armstrong number is a number that is equal to the sum of cubes of
+
+its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong
+numbers. Let's try to understand why 153 is an Armstrong number.
+153 = (1*1*1)+(5*5*5)+(3*3*3) where:
+(1*1*1)=1
+(5*5*5)=125
+(3*3*3)=27
+So:
+1+125+27=153
+
+solution:
+
+function sumOfDigit(num) {
+    let sum = 0
+    while(num > 0){
+        let rem = num % 10
+        sum += Math.pow(rem, 3)
+        num = Math.floor(num/10)
+    }
+    return sum
+
+}
+
+function isArmstrong(num){
+    return num === sumOfDigit(num)? true : false
+}
+
+console.log(isArmstrong(153))
+
+3. Write a program to find whether a given number is special number or not-
+If the sum of the factorial of digits of a number (N) is equal to the
+
+number itself, the number (N) is called a special number.
+eg- 145 is a special number
+Logic- 1! + 4! + 5!= 1+24+120 i.e 145
+
+solution:
+function factorial(n){
+    return n==1? n: n*factorial(n-1)
+}
+
+function specialNumber(num) {
+    let sum = 0
+    let spn = num
+    while(num > 0){
+        let rem = num % 10
+        sum += factorial(rem)
+        num = Math.floor(num/10)
+    }
+    return sum === spn
+}
+console.log(specialNumber(145))
